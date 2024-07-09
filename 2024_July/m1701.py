@@ -23,10 +23,10 @@ Example:
 
 Solution:
     - Simulate: time complexity -- O(n), space complexity -- O(1)
-        - maintain a variable 'serve', this means for each customer, when their order would be served.
-        - after finishing the previous one customer
-            - if the next customer has arrived, the server time should add the next order time, which means there's no break between 2 order
-            - if the next customer has not arrived, the chief would wait for the next order coming, so the serve time should be equal to arrival + time.
+        - Maintain a variable 'serving', this means for each customer, when their order would be served.
+        - For each customer, the serving time is equal to start cooking time + cooking time.
+        - For each customer, the start cooking time is the max value between previous customers serving time and the current customer's arriving time.
+        - Therefore, we get the formula, serving = max(serving, arrival) + cooking
 '''
 
 class Solution:
